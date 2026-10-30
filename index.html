@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vmagine | Professional Website Development</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#011d5e;
+  color:#fff;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:min(1100px,92%);
+  margin:auto;
+}
+
+/* NAVBAR */
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(7,11,20,.92);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-inner{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:800;
+}
+
+.logo span{
+  color:#756cff;
+}
+
+.nav-links{
+  display:flex;
+  gap:25px;
+  align-items:center;
+}
+
+.nav-links a{
+  color:#c5cad5;
+  font-size:15px;
+}
+
+.nav-links a:hover{
+  color:#fff;
+}
+
+.nav-btn{
+  background:#6c63ff;
+  padding:11px 18px;
+  border-radius:10px;
+  color:white!important;
+  font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+  padding:110px 0 90px;
+  text-align:center;
+  background:
+  radial-gradient(circle at top,rgba(108,99,255,.25),transparent 48%);
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 15px;
+  border-radius:50px;
+  background:rgba(108,99,255,.12);
+  border:1px solid rgba(108,99,255,.35);
+  color:#bdb8ff;
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+.hero h1{
+  font-size:clamp(42px,8vw,78px);
+  line-height:1.02;
+  letter-spacing:-3px;
+  max-width:900px;
+  margin:auto;
+}
+
+.hero h1 span{
+  color:#7c74ff;
+}
+
+.hero p{
+  max-width:650px;
+  margin:25px auto 35px;
+  color:#aab0bf;
+  font-size:18px;
+}
+
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:14px 23px;
+  border-radius:11px;
+  font-weight:bold;
+  display:inline-block;
+}
+
+.btn-primary{
+  background:#6c63ff;
+}
+
+.btn-secondary{
+  background:#111827;
+  border:1px solid #293246;
+}
+
+/* SECTIONS */
+
+section{
+  padding:85px 0;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.section-title h2{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.section-title p{
+  color:#9299aa;
+}
+
+/* SERVICES */
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  background:#0d1320;
+  border:1px solid #20283a;
+  border-radius:18px;
+  padding:30px;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:#6c63ff;
+}
+
+.icon{
+  width:50px;
+  height:50px;
+  display:grid;
+  place-items:center;
+  border-radius:13px;
+  background:rgba(108,99,255,.15);
+  font-size:24px;
+  margin-bottom:20px;
+}
+
+.card h3{
+  margin-bottom:10px;
+}
+
+.card p{
+  color:#9299aa;
+  font-size:15px;
+}
+
+/* PROCESS */
+
+.process{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.step{
+  text-align:center;
+  padding:25px 15px;
+}
+
+.number{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 15px;
+  border-radius:50%;
+  background:#6c63ff;
+  font-weight:bold;
+}
+
+.step p{
+  color:#8f96a6;
+  font-size:14px;
+}
+
+/* ORDER */
+
+.order-section{
+  background:#0a0f1b;
+}
+
+.form-wrapper{
+  max-width:820px;
+  margin:auto;
+  background:#0e1523;
+  border:1px solid #222b3d;
+  border-radius:22px;
+  padding:35px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.full{
+  grid-column:1/-1;
+}
+
+label{
+  font-size:14px;
+  color:#d6d9e2;
+  font-weight:bold;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  background:#080d17;
+  color:white;
+  border:1px solid #283247;
+  border-radius:10px;
+  padding:13px 14px;
+  outline:none;
+  font-family:inherit;
+  font-size:15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#6c63ff;
+}
+
+textarea{
+  min-height:140px;
+  resize:vertical;
+}
+
+.submit-btn{
+  width:100%;
+  margin-top:22px;
+  padding:16px;
+  background:#6c63ff;
+  color:#fff;
+  border:0;
+  border-radius:11px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.submit-btn:hover{
+  background:#8179ff;
+}
+
+.submit-btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
+.status{
+  display:none;
+  margin-top:18px;
+  padding:15px;
+  border-radius:10px;
+  white-space:pre-wrap;
+  font-size:14px;
+}
+
+.success{
+  display:block;
+  background:rgba(34,197,94,.1);
+  border:1px solid rgba(34,197,94,.3);
+  color:#7cf2a2;
+}
+
+.error{
+  display:block;
+  background:rgba(239,68,68,.1);
+  border:1px solid rgba(239,68,68,.3);
+  color:#ff8f8f;
+}
+
+.note{
+  text-align:center;
+  color:#747c8d;
+  font-size:12px;
+  margin-top:14px;
+}
+
+/* FOOTER */
+
+footer{
+  padding:35px 0;
+  border-top:1px solid #1b2332;
+  text-align:center;
+  color:#747b8b;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  .services{
+    grid-template-columns:1fr;
+  }
+
+  .process{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+
+  .nav-links a:not(.nav-btn){
+    display:none;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .full{
+    grid-column:auto;
+  }
+
+  .process{
+    grid-template-columns:1fr;
+  }
+
+  .form-wrapper{
+    padding:22px;
+  }
+
+  .hero{
+    padding:80px 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+  <div class="container nav-inner">
+
+    <a href="#" class="logo">
+      V<span>magine</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#order" class="nav-btn">Order Website</a>
+    </div>
+
+  </div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+  <div class="container">
+
+    <div class="badge">
+      Professional Website Development
+    </div>
+
+    <h1>
+      Turn your idea into a
+      <span>website.</span>
+    </h1>
+
+    <p>
+      Vmagine creates modern, responsive and professional
+      websites for businesses, creators, portfolios and
+      custom projects.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="#order" class="btn btn-primary">
+        Start Your Project
+      </a>
+
+      <a href="#services" class="btn btn-secondary">
+        Explore Services
+      </a>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>What We Build</h2>
+      <p>Websites designed around your goals.</p>
+    </div>
+
+    <div class="services">
+
+      <div class="card">
+        <div class="icon">💼</div>
+        <h3>Business Websites</h3>
+        <p>
+          Professional websites that help businesses
+          build trust and attract customers.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎨</div>
+        <h3>Portfolio Websites</h3>
+        <p>
+          Clean portfolios for students, creators,
+          freelancers and professionals.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Custom Websites</h3>
+        <p>
+          Unique websites built according to your
+          specific idea and requirements.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PROCESS -->
+
+<section id="process">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>How It Works</h2>
+      <p>From your idea to a finished website.</p>
+    </div>
+
+    <div class="process">
+
+      <div class="step">
+        <div class="number">1</div>
+        <h3>Tell Us</h3>
+        <p>Submit your website requirements.</p>
+      </div>
+
+      <div class="step">
+        <div class="number">2</div>
+        <h3>Discuss</h3>
+        <p>We understand your idea.</p>
+      </div>
+
+      <div class="step">
+        <div class="number">3</div>
+        <h3>Build</h3>
+        <p>Your website is designed and developed.</p>
+      </div>
+
+      <div class="step">
+        <div class="number">4</div>
+        <h3>Launch</h3>
+        <p>Your finished website is ready.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ORDER -->
+
+<section id="order" class="order-section">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Order Your Website</h2>
+      <p>
+        Tell us about your project and we'll contact you.
+      </p>
+    </div>
+
+    <div class="form-wrapper">
+
+      <form id="orderForm">
+
+        <div class="form-grid">
+
+          <div class="field">
+
+            <label>Full Name *</label>
+
+            <input
+              id="client_name"
+              type="text"
+              placeholder="Your full name"
+              required
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>Email Address *</label>
+
+            <input
+              id="client_email"
+              type="email"
+              placeholder="you@example.com"
+              required
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>Contact Number *</label>
+
+            <input
+              id="client_phone"
+              type="tel"
+              placeholder="+91 9876543210"
+              required
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>Website Type *</label>
+
+            <select id="website_type" required>
+
+              <option value="">Select type</option>
+
+              <option>Business Website</option>
+              <option>Portfolio Website</option>
+              <option>Personal Website</option>
+              <option>Landing Page</option>
+              <option>Educational Website</option>
+              <option>Online Store</option>
+              <option>Custom Website</option>
+
+            </select>
+
+          </div>
+
+
+          <div class="field full">
+
+            <label>Website / Brand Name</label>
+
+            <input
+              id="website_name"
+              type="text"
+              placeholder="Example: ABC Company"
+            >
+
+          </div>
+
+
+          <div class="field full">
+
+            <label>Describe Your Website *</label>
+
+            <textarea
+              id="website_description"
+              placeholder="Tell us about the website you want..."
+              required
+            ></textarea>
+
+          </div>
+
+
+          <div class="field">
+
+            <label>Budget *</label>
+
+            <select id="budget" required>
+
+              <option value="">Select budget</option>
+
+              <option>Under ₹5,000</option>
+              <option>₹5,000 – ₹10,000</option>
+              <option>₹10,000 – ₹25,000</option>
+              <option>₹25,000 – ₹50,000</option>
+              <option>₹50,000+</option>
+              <option>Let's Discuss</option>
+
+            </select>
+
+          </div>
+
+
+          <div class="field">
+
+            <label>Expected Timeline</label>
+
+            <select id="timeline">
+
+              <option value="">Select timeline</option>
+
+              <option>As soon as possible</option>
+              <option>1 week</option>
+              <option>2 weeks</option>
+              <option>3 weeks</option>
+              <option>1 month</option>
+              <option>Flexible</option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="submit-btn"
+          id="submitBtn"
+        >
+          Submit Website Order
+        </button>
+
+
+        <div id="status" class="status"></div>
+
+        <div class="note">
+          Your information is used only to discuss your website project.
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="container">
+
+    © 2026 <strong>Vmagine</strong>.
+    All rights reserved.
+
+  </div>
+
+</footer>
+
+
+<script>
+
+/* =========================================
+   EMAILJS CONFIGURATION
+   ========================================= */
+
+const EMAILJS_PUBLIC_KEY =
+  "IgmIOmeN7EyoGXxQj";
+
+const EMAILJS_SERVICE_ID =
+  "service_ltfu9tb";
+
+const ADMIN_TEMPLATE_ID =
+  "template_a3yyosh";
+
+const CLIENT_TEMPLATE_ID =
+  "template_lo81tfu";
+
+const ADMIN_EMAIL =
+  "vmagine325@gmail.com";
+
+const WHATSAPP_NUMBER =
+  "918979927985";
+
+
+/* INITIALIZE EMAILJS */
+
+emailjs.init({
+  publicKey: EMAILJS_PUBLIC_KEY
+});
+
+
+/* GET ELEMENTS */
+
+const form =
+  document.getElementById("orderForm");
+
+const submitBtn =
+  document.getElementById("submitBtn");
+
+const statusBox =
+  document.getElementById("status");
+
+
+/* FORM SUBMIT */
+
+form.addEventListener("submit", async function(e){
+
+  e.preventDefault();
+
+
+  /* GET VALUES */
+
+  const name =
+    document.getElementById("client_name").value.trim();
+
+  const email =
+    document.getElementById("client_email").value.trim();
+
+  const phone =
+    document.getElementById("client_phone").value.trim();
+
+  const websiteType =
+    document.getElementById("website_type").value;
+
+  const websiteName =
+    document.getElementById("website_name").value.trim();
+
+  const description =
+    document.getElementById("website_description").value.trim();
+
+  const budget =
+    document.getElementById("budget").value;
+
+  const timeline =
+    document.getElementById("timeline").value ||
+    "Not specified";
+
+
+  /* VALIDATE */
+
+  if(
+    !name ||
+    !email ||
+    !phone ||
+    !websiteType ||
+    !description ||
+    !budget
+  ){
+
+    statusBox.className = "status error";
+
+    statusBox.textContent =
+      "Please fill in all required fields.";
+
+    return;
+  }
+
+
+  /* DATE */
+
+  const submittedAt =
+    new Date().toLocaleString("en-IN",{
+      dateStyle:"medium",
+      timeStyle:"short"
+    });
+
+
+  /* EMAILJS PARAMETERS */
+
+  const templateParams = {
+
+    client_name:name,
+
+    client_email:email,
+
+    client_phone:phone,
+
+    website_type:websiteType,
+
+    website_name:
+      websiteName || "Not specified",
+
+    website_description:
+      description,
+
+    budget:budget,
+
+    timeline:timeline,
+
+    submitted_at:submittedAt,
+
+    admin_email:ADMIN_EMAIL,
+
+    /* Used by client template */
+    to_email:email
+
+  };
+
+
+  /* LOADING */
+
+  submitBtn.disabled = true;
+
+  submitBtn.textContent =
+    "Sending Order...";
+
+  statusBox.className = "status";
+
+  statusBox.style.display = "none";
+
+
+  try{
+
+    /* ====================================
+       SEND TO ADMIN
+       ==================================== */
+
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      ADMIN_TEMPLATE_ID,
+      templateParams
+    );
+
+
+    /* ====================================
+       SEND CONFIRMATION TO CLIENT
+       ==================================== */
+
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      CLIENT_TEMPLATE_ID,
+      templateParams
+    );
+
+
+    /* ====================================
+       SUCCESS
+       ==================================== */
+
+    statusBox.className =
+      "status success";
+
+    statusBox.style.display =
+      "block";
+
+    statusBox.textContent =
+      "✓ Website order submitted successfully!\n\n" +
+      "Confirmation sent to: " +
+      email;
+
+
+    /* ====================================
+       WHATSAPP MESSAGE
+       ==================================== */
+
+    const whatsappMessage =
+
+      "🔔 NEW VMAGINE WEBSITE ORDER\n\n" +
+
+      "Name: " +
+      name +
+
+      "\nEmail: " +
+      email +
+
+      "\nPhone: " +
+      phone +
+
+      "\nWebsite Type: " +
+      websiteType +
+
+      "\nWebsite Name: " +
+      (websiteName || "Not specified") +
+
+      "\n\nDescription:\n" +
+      description +
+
+      "\n\nBudget: " +
+      budget +
+
+      "\nTimeline: " +
+      timeline +
+
+      "\nSubmitted: " +
+      submittedAt;
+
+
+    const whatsappURL =
+      "https://wa.me/" +
+      WHATSAPP_NUMBER +
+      "?text=" +
+      encodeURIComponent(whatsappMessage);
+
+
+    /*
+      Open WhatsApp.
+      The message is prepared automatically,
+      but WhatsApp requires the user to press Send.
+    */
+
+    setTimeout(function(){
+
+      window.open(
+        whatsappURL,
+        "_blank"
+      );
+
+    },800);
+
+
+    /* RESET */
+
+    form.reset();
+
+
+  }catch(error){
+
+    console.error(
+      "EmailJS Error:",
+      error
+    );
+
+
+    /* SHOW ACTUAL ERROR */
+
+    statusBox.className =
+      "status error";
+
+    statusBox.style.display =
+      "block";
+
+    statusBox.textContent =
+      "❌ Email could not be sent.\n\n" +
+
+      "EmailJS Error:\n" +
+
+      (
+        error?.text ||
+        error?.message ||
+        JSON.stringify(error)
+      );
+
+
+  }finally{
+
+    submitBtn.disabled = false;
+
+    submitBtn.textContent =
+      "Submit Website Order";
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
